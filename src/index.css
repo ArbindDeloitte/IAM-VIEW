@@ -15,7 +15,14 @@ html, body, #root { margin: 0; height: 100%; background: var(--bg); overflow: hi
 button { font: inherit; color: inherit; cursor: pointer; }
 h1, h3, p { margin: 0; }
 
-.app { position: fixed; inset: 0; }
+.shell { display: flex; flex-direction: column; height: 100%; }
+.nav { flex: none; height: 52px; display: flex; align-items: center; gap: 6px; padding: 0 20px; background: rgba(8, 11, 30, 0.95); border-bottom: 1px solid var(--line); z-index: 30; }
+.brand { font: 700 15px 'Space Grotesk', Inter, sans-serif; letter-spacing: 0.02em; margin-right: 14px; }
+.navlink { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 99px; border: 1px solid transparent; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.navlink:hover { color: var(--text); }
+.navlink.active { color: var(--text); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.page { flex: 1; position: relative; min-height: 0; }
+.app { position: absolute; inset: 0; }
 .canvas { position: absolute; inset: 0; }
 .canvas canvas { display: block; width: 100%; height: 100%; touch-action: none; }
 
@@ -101,7 +108,9 @@ small { display: block; color: var(--muted); font-size: 12px; line-height: 1.45;
 
 @media (max-width: 899px) {
   .overlay { padding: 10px; align-items: flex-end; }
-  .panel { width: 100%; min-width: 0; height: 50vh; }
+  .panel { width: 100%; min-width: 0; height: 50%; }
+  .nav { padding: 0 10px; overflow-x: auto; }
+  .brand { display: none; }
   .hint { display: none; }
   .grid { grid-template-columns: 1fr; }
 }

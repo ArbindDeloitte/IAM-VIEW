@@ -65,7 +65,7 @@ export default function App() {
     const measure = () => {
       const w = window.innerWidth;
       if (w >= 900) scene.setLayout({ panelPx: panelRef.current.offsetWidth + 48, panelBottomPx: 0 });
-      else scene.setLayout({ panelPx: 0, panelBottomPx: window.innerHeight * 0.5 });
+      else scene.setLayout({ panelPx: 0, panelBottomPx: canvasRef.current.clientHeight * 0.5 });
     };
     measure();
     window.addEventListener('resize', measure);
